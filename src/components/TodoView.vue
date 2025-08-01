@@ -1,18 +1,18 @@
 <template>
     
     <div class="grid grid-cols-2 gap-4">
+        <div class="h-20 bg-yellow-300 rounded-2xl flex items-center justify-center gap-4">
+            <div class="pi pi-clock text-xl text-white rounded-full bg-yellow-400 p-2"></div>
+            <div>
+                <p class="font-bold">Scheduled</p>
+                <p class="text-sm">24 Tasks</p>
+            </div>
+        </div>
         <div class="h-20 bg-blue-300 rounded-2xl flex items-center justify-center gap-4">
             <div class="pi pi-sync text-xl text-white rounded-full bg-blue-400 p-2"></div>
             <div>
                 <p class="font-bold">On going</p>
-                <p class="text-sm">24 Tasks</p>
-            </div>
-        </div>
-        <div class="h-20 bg-yellow-300 rounded-2xl flex items-center justify-center gap-4">
-            <div class="pi pi-clock text-xl text-white rounded-full bg-yellow-400 p-2"></div>
-            <div>
-                <p class="font-bold">In Process</p>
-                <p class="text-sm">24 Tasks</p>
+                <p class="text-sm"> {{ totalOnGoing }} Tasks</p>
             </div>
         </div>
         <div class="h-20 bg-green-300 rounded-2xl flex items-center justify-center gap-4">
@@ -31,4 +31,18 @@
         </div>
 
     </div>
+
 </template>
+
+<script setup lang="ts">
+    import { computed } from 'vue';
+    import { defineProps } from 'vue';
+
+    // menerima todos dari App.vue
+    const props = defineProps<{
+        todos: string[];
+    }>();
+
+    // menghitung jumlah todo ongoing
+    const totalOnGoing = computed(() => props.todos.length);
+</script>
