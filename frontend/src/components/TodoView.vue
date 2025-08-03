@@ -5,7 +5,7 @@
             <div class="pi pi-clock text-xl text-white rounded-full bg-yellow-400 p-2"></div>
             <div>
                 <p class="font-bold">Scheduled</p>
-                <p class="text-sm">24 Tasks</p>
+                <p class="text-sm">0 Tasks</p>
             </div>
         </div>
         <div class="h-20 bg-blue-300 rounded-2xl flex items-center justify-center gap-4">
