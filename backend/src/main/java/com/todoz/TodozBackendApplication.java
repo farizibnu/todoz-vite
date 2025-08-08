@@ -1,4 +1,4 @@
-package com.todoz.backend;
+package com.todoz;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
