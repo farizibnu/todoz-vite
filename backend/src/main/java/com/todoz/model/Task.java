@@ -1,29 +1,34 @@
 package com.todoz.model;
 
+import java.util.UUID;
+
 import org.hibernate.annotations.GenericGenerator;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.Data;
 
 @Entity
+@Data
 @Table(name = "tasks")
 public class Task {
     
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(name = "id", updatable = false, nullable = false)
-    private String id;
+    private UUID id;
 
-    @Column(name = "todo_id", nullable = false)
-    private String todoId;
+    @ManyToOne
+    @JoinColumn(name = "todo_id")
+    private Todo todo;
 
-    @Column(name = "title", nullable = false)
     private String title;
 
     @Column(name = "is_done")
-    private Boolean isDone;
+    private Boolean isDone = false;
 }
